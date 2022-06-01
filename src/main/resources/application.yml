@@ -11,7 +11,7 @@ spring:
   # mysql
   datasource:
     username: root
-    password: Cc980507
+    password: 1qaz!QAZ
     url: jdbc:mysql://localhost:3306/2022?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
     druid:
