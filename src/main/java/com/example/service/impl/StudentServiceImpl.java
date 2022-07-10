@@ -33,4 +33,10 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> impl
         this.baseMapper.insert(student);
         System.out.println(student.getId());
     }
+
+    @Override
+    public Student getStudentById(Integer id) {
+        Student student = this.baseMapper.selectById(id);
+        return student;
+    }
 }

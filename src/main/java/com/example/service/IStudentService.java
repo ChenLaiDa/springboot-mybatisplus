@@ -16,4 +16,5 @@ public interface IStudentService extends IService<Student> {
 
     void saveStudent(Student student);
 
+    Student getStudentById(Integer id);
 }

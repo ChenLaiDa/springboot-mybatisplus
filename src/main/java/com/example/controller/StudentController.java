@@ -1,19 +1,19 @@
 package com.example.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.example.annotations.DataPermission;
 import com.example.common.reponse.BaseResult;
 import com.example.model.entity.Student;
 import com.example.service.IStudentService;
-import com.sun.xml.internal.txw2.output.ResultFactory;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
-import org.springframework.context.i18n.LocaleContextHolder;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Locale;
 
 /**
  * <p>
@@ -36,6 +36,22 @@ public class StudentController {
     public BaseResult saveStudent(@RequestBody Student student){
         studentService.saveStudent(student);
         return BaseResult.success();
+    }
+
+
+    @ApiOperation(value = "根据id获取学生信息",notes = "根据id获取学生信息")
+    @PostMapping("/getStudentById")
+    public BaseResult<Student> getStudentById(@RequestParam("id") Integer id){
+        Student student = studentService.getStudentById(id);
+        return BaseResult.success(student);
+    }
+
+    @ApiOperation(value = "获取所有的学生",notes = "获取所有的学生")
+    @PostMapping("/getAllStudent")
+    @DataPermission
+    public BaseResult<List<Student>> getAllStudent(){
+        List<Student> list = studentService.list(new LambdaQueryWrapper<Student>().eq(Student::getIsDelete, 0));
+        return BaseResult.success(list);
     }
 
 

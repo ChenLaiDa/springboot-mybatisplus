@@ -40,6 +40,8 @@ public class Student extends Model<Student> {
 
     private Integer isDelete;
 
+    private String sysOrgCode;
+
     public Student() {
     }
 

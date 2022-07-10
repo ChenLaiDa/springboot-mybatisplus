@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author ${author}
@@ -28,10 +28,5 @@ public class T extends Model<T> {
 
     private Integer b;
 
-
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
 
 }
